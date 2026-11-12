@@ -380,6 +380,7 @@ textarea:focus { border-color: var(--fg); }
 .tick circle, .tick path { fill: none; stroke: var(--ok); stroke-width: 1.5; }
 .tick path { stroke-dasharray: 30; stroke-dashoffset: 30; animation: draw .6s .2s var(--ease) forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .notice { font-size: var(--t-xs); color: var(--muted-fg); border-left: 2px solid var(--accent); padding-left: .75rem; }
 
 /* Bewertungen */
@@ -812,14 +813,8 @@ footer { border-top: 1px solid var(--border); padding-bottom: 5rem; }
                 <select id="ap-hours" name="umfang"><option>Vollzeit</option><option>Teilzeit</option><option>Minijob</option></select><i class="bar"></i></div>
             </div>
             <div class="field"><label for="ap-msg">Warum Element Hair? <span class="opt">(optional)</span></label><textarea id="ap-msg" name="nachricht" placeholder="Ein paar Sätze über dich, deine Lieblingstechnik oder was du suchst."></textarea></div>
-            <div class="field">
-              <span class="flabel">Lebenslauf oder Portfolio <span class="opt">(optional, PDF oder Bild, max. 5 MB)</span></span>
-              <div class="file" id="dropZone">
-                <input type="file" id="ap-cv" name="anhang" accept=".pdf,image/*">
-                <label for="ap-cv">Datei wählen</label>
-                <span class="fname" id="cvName">oder hierher ziehen</span>
-              </div>
-            </div>
+            <p class="notice">Lebenslauf oder Fotos deiner Arbeiten brauchst du jetzt nicht. Schick sie uns gern später als Antwort auf unsere E-Mail.</p>
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field" id="f-privacy">
               <label class="check"><input type="checkbox" id="ap-privacy" name="einwilligung" required><span>Ich bin einverstanden, dass Element Hair meine Angaben zur Bearbeitung meiner Bewerbung speichert. Details in der <button type="button" class="linkbtn" data-open="dlgPrivacy">Datenschutzerklärung</button>.</span></label>
               <span class="err" aria-live="polite"></span>
@@ -1072,7 +1067,7 @@ footer { border-top: 1px solid var(--border); padding-bottom: 5rem; }
       <div><p class="dlg-sub">1. Verantwortlicher</p><p>Element Hair, Inhaberin Eda Seker, Schloßstraße 7, 87527 Sonthofen. Telefon: 08321 6076660, E-Mail: eda.elementhair@gmail.com. Ein Datenschutzbeauftragter ist gesetzlich nicht erforderlich.</p></div>
       <div><p class="dlg-sub">2. Hosting und Server-Logdaten</p><p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub automatisch technische Zugriffsdaten (IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp), um die Seite auszuliefern und vor Angriffen zu schützen. Eine Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework, unter dem GitHub zertifiziert ist. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Website). Weitere Informationen: docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement</p></div>
       <div><p class="dlg-sub">3. Cookies und Einwilligungsverwaltung</p><p><strong>Notwendig:</strong> Wir speichern Ihre Cookie-Entscheidung im lokalen Speicher Ihres Browsers. <strong>Statistik und Marketing:</strong> Wir setzen keine solchen Dienste ein. <strong>Externe Medien – Google Maps:</strong> Die Karte von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland wird erst nach Ihrer ausdrücklichen Zustimmung geladen. Dabei werden Ihre IP-Adresse und Geräteangaben an Google übertragen; eine Übermittlung in die USA erfolgt auf Basis des EU-US Data Privacy Framework.</p></div>
-      <div><p class="dlg-sub">4. Bewerbungen</p><p>Wenn Sie sich über unser Formular bewerben, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Angaben zur Erfahrung, Nachricht und ggf. Anhang) ausschließlich zur Durchführung des Bewerbungsverfahrens nach § 26 BDSG bzw. Art. 6 Abs. 1 lit. b DSGVO. Die Übermittlung erfolgt verschlüsselt über den Formular-Dienst Web3Forms per E-Mail an uns. Bei einer Absage löschen wir Ihre Daten spätestens sechs Monate nach Abschluss des Verfahrens.</p></div>
+      <div><p class="dlg-sub">4. Bewerbungen</p><p>Wenn Sie sich über unser Formular bewerben, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Angaben zur Erfahrung, Nachricht) ausschließlich zur Durchführung des Bewerbungsverfahrens nach § 26 BDSG bzw. Art. 6 Abs. 1 lit. b DSGVO. Die Übermittlung erfolgt verschlüsselt über den Formular-Dienst Web3Forms per E-Mail an uns. Bei einer Absage löschen wir Ihre Daten spätestens sechs Monate nach Abschluss des Verfahrens.</p></div>
       <div><p class="dlg-sub">5. Kontaktaufnahme</p><p>Wenn Sie uns per Telefon oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Eine Online-Terminbuchung bieten wir nicht an.</p></div>
       <div><p class="dlg-sub">6. Instagram</p><p>Wir verlinken auf unser Instagram-Profil. Erst wenn Sie den Link anklicken, werden Daten an Meta Platforms Ireland Ltd. übertragen. Es sind keine Instagram-Inhalte oder Zählpixel eingebettet.</p></div>
       <div><p class="dlg-sub">7. Speicherdauer und Rechte</p><p>Ihre Cookie-Entscheidung wird maximal 12 Monate gespeichert. Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO). Einwilligungen können Sie jederzeit widerrufen. Zuständige Aufsichtsbehörde: Bayerisches Landesamt für Datenschutzaufsicht, Promenade 27, 91522 Ansbach.</p></div>
@@ -1086,7 +1081,7 @@ footer { border-top: 1px solid var(--border); padding-bottom: 5rem; }
 <script>
 /* ============ Einstellungen für die Live-Website ============ */
 // Bewerbungsformular: kostenlosen Zugangsschlüssel auf web3forms.com mit eda.elementhair@gmail.com erstellen und hier eintragen.
-var WEB3FORMS_KEY = "";
+var WEB3FORMS_KEY = "337edf41-a97f-4bfd-87e5-ccf0c745c9e3";
 // Diashow: eigene Fotos in den Ordner "bilder/" legen und hier eintragen (Datei + Bildunterschrift).
 var SLIDES = [
   { src: "bilder/salon-waschplaetze.webp", caption: "Waschplätze mit Kevin-Murphy-Pflege" },
@@ -1302,22 +1297,16 @@ var PHOTOS = { hero: "", eda: "", sandra: "" }; // leer = Foto aus dem HTML verw
   });
 
   /* ---------- Bewerbung ---------- */
-  var form = $("#applyForm"), done = $("#done"), cv = $("#ap-cv"), cvName = $("#cvName"), drop = $("#dropZone");
-  function showFile() { var f = cv.files && cv.files[0]; cvName.textContent = f ? f.name + " · " + Math.max(1, Math.round(f.size / 1024)) + " KB" : "oder hierher ziehen"; }
-  cv.addEventListener("change", showFile);
-  ["dragenter", "dragover"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("drag"); }); });
-  ["dragleave", "drop"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("drag"); }); });
-  drop.addEventListener("drop", function (e) { if (e.dataTransfer.files.length) { try { cv.files = e.dataTransfer.files; } catch (x) {} showFile(); } });
+  var form = $("#applyForm"), done = $("#done");
   var hoursSel = $("#ap-hours");
   $$('input[name="stelle"]').forEach(function (r) { r.addEventListener("change", function () { hoursSel.value = r.value === "Aushilfe" ? "Minijob" : "Vollzeit"; }); });
   function setErr(id, msg) { var f = document.getElementById(id), e = f.querySelector(".err"); f.classList.toggle("invalid", !!msg); if (e) e.textContent = msg || ""; return !msg; }
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var name = $("#ap-name").value.trim(), email = $("#ap-email").value.trim(), file = cv.files && cv.files[0];
+    var name = $("#ap-name").value.trim(), email = $("#ap-email").value.trim();
     var ok = setErr("f-name", name.length < 2 ? "Bitte gib deinen Namen ein." : "");
     ok = setErr("f-email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "" : "Bitte gib eine gültige E-Mail-Adresse ein, z. B. name@beispiel.de.") && ok;
     ok = setErr("f-privacy", $("#ap-privacy").checked ? "" : "Bitte bestätige die Einwilligung, damit wir deine Bewerbung bearbeiten dürfen.") && ok;
-    if (file && file.size > 5 * 1024 * 1024) { ok = false; toast("Die Datei ist größer als 5 MB. Bitte wähle eine kleinere Datei."); }
     if (!ok) { var first = form.querySelector(".invalid input"); if (first) first.focus(); return; }
     var stelle = form.querySelector('input[name="stelle"]:checked').value;
     function success() {
@@ -1343,7 +1332,7 @@ var PHOTOS = { hero: "", eda: "", sandra: "" }; // leer = Foto aus dem HTML verw
       .catch(function () { notice.hidden = false; notice.textContent = "Senden hat nicht geklappt. Bitte versuche es erneut oder schick deine Bewerbung an eda.elementhair@gmail.com."; })
       .then(function () { btn.disabled = false; btn.firstChild.textContent = "Bewerbung an Eda senden "; });
   });
-  $("#again").onclick = function () { form.reset(); showFile(); $("#formNotice").hidden = true; done.hidden = true; form.hidden = false; };
+  $("#again").onclick = function () { form.reset(); $("#formNotice").hidden = true; done.hidden = true; form.hidden = false; };
 
   /* ---------- Fotos hochladen (nur in der claude.ai-Vorschau für Bearbeiter) ---------- */
   if (!window.claude || !claude.use) return;
